@@ -210,38 +210,20 @@ textarea {
 }
 
 .whatsapp-mark {
-  position: relative;
   display: inline-block;
-  width: 17px;
-  height: 17px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.02 3C8.84 3 3 8.82 3 15.98c0 2.3.61 4.53 1.77 6.5L3 29l6.69-1.75a12.9 12.9 0 0 0 6.33 1.62C23.2 28.87 29 23.05 29 15.9S23.18 3 16.02 3zm0 23.66c-2 0-3.94-.54-5.63-1.56l-.4-.24-3.96 1.04 1.06-3.86-.26-.4a10.62 10.62 0 0 1-1.63-5.66c0-5.95 4.86-10.79 10.82-10.79 2.89 0 5.6 1.13 7.64 3.17a10.71 10.71 0 0 1 3.17 7.62c0 5.95-4.85 10.78-10.81 10.78zm5.93-8.06c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.32-.02-.5.14-.66.14-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68 0 1.58 1.16 3.1 1.32 3.31.16.21 2.28 3.48 5.52 4.87.77.33 1.37.53 1.84.68.77.25 1.48.21 2.04.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.02 3C8.84 3 3 8.82 3 15.98c0 2.3.61 4.53 1.77 6.5L3 29l6.69-1.75a12.9 12.9 0 0 0 6.33 1.62C23.2 28.87 29 23.05 29 15.9S23.18 3 16.02 3zm0 23.66c-2 0-3.94-.54-5.63-1.56l-.4-.24-3.96 1.04 1.06-3.86-.26-.4a10.62 10.62 0 0 1-1.63-5.66c0-5.95 4.86-10.79 10.82-10.79 2.89 0 5.6 1.13 7.64 3.17a10.71 10.71 0 0 1 3.17 7.62c0 5.95-4.85 10.78-10.81 10.78zm5.93-8.06c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.86-1.61-1.92-1.8-2.24-.19-.32-.02-.5.14-.66.14-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.57-.08-.16-.73-1.76-1-2.41-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68 0 1.58 1.16 3.1 1.32 3.31.16.21 2.28 3.48 5.52 4.87.77.33 1.37.53 1.84.68.77.25 1.48.21 2.04.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .whatsapp-mark::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  bottom: -5px;
-  width: 8px;
-  height: 8px;
-  background: currentColor;
-  clip-path: polygon(0 0, 100% 35%, 18% 100%);
-  transform: rotate(-15deg);
+  content: none;
 }
 
 .whatsapp-mark::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 4px;
-  width: 6px;
-  height: 8px;
-  border: 2px solid currentColor;
-  border-top: 0;
-  border-left: 0;
-  border-radius: 0 0 5px 0;
-  transform: rotate(-38deg);
+  content: none;
 }
 
 .nav-toggle {
@@ -393,11 +375,18 @@ textarea {
   flex: 0 0 auto;
   display: inline-grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  color: var(--white);
-  background: var(--teal);
-  border-radius: 8px;
+  width: 54px;
+  height: 54px;
+  color: #f8f1ea;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+    rgba(36, 92, 85, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 10px 28px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px) saturate(1.2);
 }
 
 .printer-visual::before,
@@ -411,52 +400,57 @@ textarea {
 }
 
 .printer-visual::before {
-  width: 25px;
-  height: 17px;
-  border: 2px solid currentColor;
+  width: 30px;
+  height: 20px;
+  border: 2.2px solid currentColor;
   border-radius: 3px;
   transform: translateY(2px);
 }
 
 .printer-visual::after {
-  width: 18px;
-  height: 8px;
-  border: 2px solid currentColor;
+  width: 22px;
+  height: 10px;
+  border: 2.2px solid currentColor;
   border-bottom: 0;
   border-radius: 3px 3px 0 0;
-  transform: translateY(-10px);
+  box-shadow: 0 22px 0 -8px currentColor;
+  transform: translateY(-12px);
 }
 
 .laptop-visual::before {
-  width: 24px;
-  height: 16px;
-  border: 2px solid currentColor;
+  width: 30px;
+  height: 20px;
+  border: 2.2px solid currentColor;
   border-radius: 3px;
   transform: translateY(-3px);
 }
 
 .laptop-visual::after {
-  width: 31px;
-  height: 4px;
+  width: 38px;
+  height: 5px;
   background: currentColor;
   border-radius: 0 0 5px 5px;
-  transform: translateY(11px);
+  transform: translateY(13px);
 }
 
 .os-visual::before {
-  width: 23px;
-  height: 23px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
+  width: 30px;
+  height: 22px;
+  border: 2.2px solid currentColor;
+  border-radius: 4px;
+  transform: translateY(-4px);
 }
 
 .os-visual::after {
-  width: 9px;
-  height: 9px;
+  width: 22px;
+  height: 2.2px;
   background: currentColor;
-  border-radius: 50%;
-  box-shadow: 10px 0 0 currentColor, 5px 9px 0 currentColor;
-  transform: translate(-5px, -5px);
+  border-radius: 999px;
+  box-shadow:
+    0 6px 0 currentColor,
+    7px 13px 0 -0.2px currentColor,
+    -7px 13px 0 -0.2px currentColor;
+  transform: translateY(-4px);
 }
 
 .partner-visual {
@@ -1506,8 +1500,44 @@ section[id] {
   }
 
   .visual-icon {
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .printer-visual::before {
+    width: 24px;
+    height: 16px;
+  }
+
+  .printer-visual::after {
+    width: 18px;
+    height: 8px;
+    transform: translateY(-10px);
+  }
+
+  .laptop-visual::before {
+    width: 24px;
+    height: 16px;
+  }
+
+  .laptop-visual::after {
+    width: 30px;
+    height: 4px;
+    transform: translateY(10px);
+  }
+
+  .os-visual::before {
+    width: 24px;
+    height: 17px;
+  }
+
+  .os-visual::after {
+    width: 18px;
+    box-shadow:
+      0 5px 0 currentColor,
+      6px 11px 0 -0.2px currentColor,
+      -6px 11px 0 -0.2px currentColor;
   }
 
   .focus-chip strong {
