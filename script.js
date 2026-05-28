@@ -33,7 +33,7 @@ if (quoteForm) {
     const details = String(formData.get("quoteDetails") || "").trim();
 
     const messageParts = [
-      "Hi Veeresh, I am looking to get a quote for " + serviceType + " from Sree Pooja Technologies.",
+      "Hi Sree Pooja Technologies team, I am looking to get a quote for " + serviceType + ".",
     ];
 
     if (name) {

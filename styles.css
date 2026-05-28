@@ -4,6 +4,7 @@
   --paper: #fbfaf8;
   --white: #ffffff;
   --line: #e1d8d0;
+  --glass: rgba(255, 255, 255, 0.72);
   --teal: #245c55;
   --teal-dark: #173d38;
   --copper: #b87552;
@@ -87,7 +88,7 @@ textarea {
 }
 
 .section-shell {
-  width: min(1280px, calc(100% - 2rem));
+  width: min(1500px, calc(100% - 2.25rem));
   margin: 0 auto;
 }
 
@@ -330,10 +331,6 @@ textarea {
   display: none;
 }
 
-.mobile-hero-visual {
-  display: none;
-}
-
 .hero-actions,
 .contact-actions {
   display: flex;
@@ -521,28 +518,10 @@ textarea {
   background: #0078d4;
 }
 
-.mac-logo::before {
-  content: "";
-  position: absolute;
-  left: 4px;
-  bottom: 0;
-  width: 12px;
-  height: 15px;
-  background: #222222;
-  border-radius: 45% 45% 48% 48%;
-  clip-path: polygon(50% 0, 90% 12%, 96% 35%, 82% 55%, 93% 82%, 72% 100%, 52% 88%, 31% 100%, 9% 82%, 18% 55%, 4% 35%, 11% 12%);
-}
-
-.mac-logo::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 10px;
-  width: 7px;
-  height: 5px;
-  background: #222222;
-  border-radius: 7px 0 7px 0;
-  transform: rotate(-26deg);
+.mac-logo {
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .ubuntu-logo {
@@ -709,14 +688,54 @@ section[id] {
 .contact-partner-grid article {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--glass);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(16px) saturate(1.16);
 }
 
 .service-card {
   display: flex;
   flex-direction: column;
   padding: 1.4rem;
+  overflow: hidden;
+}
+
+.service-media,
+.inventory-media {
+  position: relative;
+  margin: -1.4rem -1.4rem 1.15rem;
+  height: 214px;
+  overflow: hidden;
+  background: #eee5dd;
+}
+
+.service-media::after,
+.inventory-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 25, 23, 0) 42%, rgba(24, 25, 23, 0.32) 100%);
+  pointer-events: none;
+}
+
+.service-media img,
+.inventory-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.015);
+}
+
+.service-card:nth-child(1) .service-media img {
+  object-position: 54% 52%;
+}
+
+.service-card:nth-child(2) .service-media img {
+  object-position: center;
+}
+
+.service-card:nth-child(3) .service-media img {
+  object-position: center 48%;
 }
 
 .service-icon {
@@ -791,6 +810,20 @@ section[id] {
 .inventory-card {
   padding: 1.45rem;
   color: var(--ink);
+  overflow: hidden;
+}
+
+.inventory-media {
+  height: 210px;
+  margin: -1.45rem -1.45rem 1.15rem;
+}
+
+.inventory-card:nth-child(1) .inventory-media img {
+  object-position: 60% 50%;
+}
+
+.inventory-card:nth-child(2) .inventory-media img {
+  object-position: 42% 52%;
 }
 
 .inventory-card .button {
@@ -1412,19 +1445,29 @@ section[id] {
   }
 
   .hero {
-    background:
-      radial-gradient(circle at 88% 0%, rgba(184, 117, 82, 0.24), transparent 34%),
-      linear-gradient(160deg, #1f201d 0%, #173d38 100%);
+    min-height: 0;
   }
 
   .hero-image,
   .hero-overlay {
-    display: none;
+    display: block;
+  }
+
+  .hero-image {
+    object-position: 68% center;
+    opacity: 0.68;
+    filter: saturate(1.05) contrast(0.92);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(24, 25, 23, 0.86) 0%, rgba(24, 25, 23, 0.66) 56%, rgba(24, 25, 23, 0.84) 100%),
+      radial-gradient(circle at 24% 18%, rgba(184, 117, 82, 0.26), transparent 34%);
   }
 
   .hero-content {
     justify-content: flex-start;
-    padding: 1.85rem 0 2.35rem;
+    padding: 2rem 0 2.6rem;
   }
 
   .hero h1 {
@@ -1445,24 +1488,6 @@ section[id] {
 
   .hero-copy-mobile {
     display: block;
-  }
-
-  .mobile-hero-visual {
-    display: block;
-    margin-top: 1rem;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 18px 38px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(16px) saturate(1.2);
-  }
-
-  .mobile-hero-visual img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
   }
 
   .hero-focus {
@@ -1524,6 +1549,33 @@ section[id] {
   .about-layout h2,
   .contact-main h2 {
     font-size: 2rem;
+  }
+
+  .service-card,
+  .inventory-card {
+    padding: 0.95rem;
+  }
+
+  .service-media,
+  .inventory-media {
+    height: 168px;
+    margin: -0.95rem -0.95rem 0.95rem;
+  }
+
+  .service-card h3,
+  .inventory-card h3 {
+    font-size: 1.12rem;
+  }
+
+  .service-card p,
+  .inventory-card p,
+  .service-card ul {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .service-card ul {
+    padding-left: 1rem;
   }
 
   .inventory-grid {
