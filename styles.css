@@ -1584,6 +1584,28 @@ section[id] {
 
   .nav-contact-actions {
     grid-template-columns: 1fr;
+    gap: 0.72rem;
+    padding: 0.55rem 0 0.9rem;
+  }
+
+  .nav-call {
+    align-items: center;
+    min-height: 78px;
+    padding: 0.85rem 1.35rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .nav-call span {
+    width: 100%;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+  }
+
+  .nav-call strong {
+    width: 100%;
+    margin-top: 0.18rem;
+    font-size: 1.08rem;
   }
 
   .section {
